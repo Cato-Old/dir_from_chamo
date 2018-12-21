@@ -36,7 +36,7 @@ class ChamoRequest:
     def get_call_nrs(self):
         call_nrs_raw = self.tree.xpath('//div[@id="tabContents-1"]/*/table/tbody/tr/td[3]/div[text()]')
         if len(call_nrs_raw) > 0:
-            call_nrs = ', '.join('BUW ' + x.text if 'BUW' not in x.text else x.text for x in call_nrs_raw)
+            call_nrs = [x.text for x in call_nrs_raw]
         else:
             call_nrs = ""
         self.result.append(call_nrs)
@@ -44,3 +44,43 @@ class ChamoRequest:
     def get_data(self):
         self.get_marc_fields()
         self.get_call_nrs()
+
+class MARCFormatter:
+
+    def __init__(self, fields):
+        self.fields = fields
+
+    def author_format(self):
+        authorraw = self.fields[0][3:self.fields[0].find('$', 1)]
+        if ',' in authorraw:
+            names = authorraw.split(', ', 1)
+            last_name, first_names = names
+            initials = ''.join(x for x in first_names if x.isupper())
+            author = last_name + ', ' + initials
+        elif '. ' in authorraw:
+            author = authorraw.replace('. ', '')
+        elif authorraw[-1] == ' ':
+            author = authorraw[:-1]
+        return author
+
+    def title_format(self):
+        titleraw = self.fields[1][3:self.fields[1].find('$', 1)]
+        if ' / ' in titleraw:
+            title = titleraw.replace(' / ', '')
+        elif '. ' in titleraw:
+            title = titleraw.replace('. ', '')
+        title_ls = title.split(' ')
+        if len(title_ls) > 5:
+            title = ' '.join(title_ls[:6]) + ' (...)'
+        return title
+
+    def call_nrs_format(self):
+        call_nrsraw = self.fields[2]
+        if call_nrsraw == "":
+            call_nrs = ""
+        else:
+            call_nrs = ', '.join(x if 'BUW' in x else 'BUW ' + x for x in call_nrsraw)
+        return call_nrs
+
+    def data_format(self):
+        return ' '.join((self.author_format() + ',', self.title_format(), '(' + self.call_nrs_format() + ')'))

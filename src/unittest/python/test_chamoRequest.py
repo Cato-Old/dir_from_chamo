@@ -13,5 +13,5 @@ class TestChamoRequest(TestCase):
 
     def test_get_data(self):
         self.test_request.get_data()
-        test_exp = ['$a Augustyn $c (św. ; $d 354-430). ', '$a Wyznania / $c Święty Augustyn ; przeł. Zygmunt Kubiak. ', 'BUW W.14892 a, BUW 1252696, BUW 514507, BUW W.XVIIIb.270 d, BUW 514509, BUW 540240']
+        test_exp = ['$a Augustyn $c (św. ; $d 354-430). ', '$a Wyznania / $c Święty Augustyn ; przeł. Zygmunt Kubiak. ', ['W.14892 a', '1252696', '514507', 'W.XVIIIb.270 d', '514509', '540240']]
         self.assertEqual(self.test_request.result, test_exp)
