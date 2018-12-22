@@ -8,6 +8,7 @@ from src.main.python.dataretrive import ChamoRequest, MARCFormatter
 def run():
     log = open('log.txt', 'a')
     sys.stdout = log
+    sys.stderr = log
     current_dir = sys.argv[1]
     if os.path.exists(current_dir + 'directories.txt'):
         with open(current_dir + 'directories.txt') as f:
