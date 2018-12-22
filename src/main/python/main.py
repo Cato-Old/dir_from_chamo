@@ -6,6 +6,8 @@ from src.main.python.dataretrive import ChamoRequest, MARCFormatter
 
 
 def run():
+    log = open('log.txt', 'a')
+    sys.stdout = log
     current_dir = sys.argv[1]
     if os.path.exists(current_dir + 'directories.txt'):
         with open(current_dir + 'directories.txt') as f:
@@ -16,6 +18,7 @@ def run():
     chreq_ls = (MARCFormatter(ChamoRequest(x).get_data()).data_format() for x in dir_ls)
     for chreq in chreq_ls:
         os.mkdir(current_dir + chreq)
+    log.close()
 
 
 run()
