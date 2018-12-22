@@ -9,6 +9,7 @@ class ChamoRequest:
         link = self.CHAMO + 'search/query?match_1=PHRASE&field_1=control&term_1=' + sys_nr + '&theme=system'
         self.result = []
         self.tree = self.get_itemlink(self.get_link(link))
+        print("I've got data for " + sys_nr)
 
     def get_link(self, link):
         resp = requests.get(link)
@@ -44,6 +45,7 @@ class ChamoRequest:
     def get_data(self):
         self.get_marc_fields()
         self.get_call_nrs()
+        return self.result
 
 class MARCFormatter:
 
@@ -52,7 +54,9 @@ class MARCFormatter:
 
     def author_format(self):
         authorraw = self.fields[0][3:self.fields[0].find('$', 1)]
-        if ',' in authorraw:
+        if authorraw == "":
+            author = ""
+        elif ',' in authorraw:
             names = authorraw.split(', ', 1)
             last_name, first_names = names
             initials = ''.join(x for x in first_names if x.isupper())
@@ -65,10 +69,10 @@ class MARCFormatter:
 
     def title_format(self):
         titleraw = self.fields[1][3:self.fields[1].find('$', 1)]
-        if ' / ' in titleraw:
-            title = titleraw.replace(' / ', '')
-        elif '. ' in titleraw:
-            title = titleraw.replace('. ', '')
+        title = titleraw
+        for stop_char in (' :', ':', ' =', '"', '? ', '?!', ' / ', '#', '%', '&', '*', '<', '>', '?', '/', '\\'):
+            title = title.replace(stop_char, '')
+        title = title.rstrip(' .!')
         title_ls = title.split(' ')
         if len(title_ls) > 5:
             title = ' '.join(title_ls[:6]) + ' (...)'
@@ -79,8 +83,13 @@ class MARCFormatter:
         if call_nrsraw == "":
             call_nrs = ""
         else:
-            call_nrs = ', '.join(x if 'BUW' in x else 'BUW ' + x for x in call_nrsraw)
+            call_nrs = ', '.join(x.replace('/', '-')
+                                 if 'BUW' in x
+                                 else 'BUW ' + x.replace('/', '-')
+                                 for x in call_nrsraw)
         return call_nrs
 
     def data_format(self):
-        return ' '.join((self.author_format() + ',', self.title_format(), '(' + self.call_nrs_format() + ')'))
+        return ' '.join((self.author_format() + ' -' if not self.author_format() == "" else self.author_format(),
+                         self.title_format(),
+                         '(' + self.call_nrs_format() + ')')).lstrip()
