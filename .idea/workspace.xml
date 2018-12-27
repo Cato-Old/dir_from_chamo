@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31126c20-668d-4217-9d2d-ad50aa212df3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/dataretrive.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/dataretrive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +73,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/python/dataretrive.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="746">
@@ -82,6 +81,18 @@
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="315">
+                <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -128,6 +139,7 @@
         <option value="$PROJECT_DIR$/src/main/python/output.py" />
         <option value="$PROJECT_DIR$/src/main/python/main.py" />
         <option value="$PROJECT_DIR$/src/main/python/dataretrive.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -160,24 +172,6 @@
             <path>
               <item name="dir_from_chamo" type="b2602c69:ProjectViewProjectNode" />
               <item name="dir_from_chamo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dir_from_chamo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dir_from_chamo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dir_from_chamo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dir_from_chamo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dir_from_chamo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dir_from_chamo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dir_from_chamo" type="b2602c69:ProjectViewProjectNode" />
@@ -365,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545492402346</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="cosmetic changes">
+      <created>1545897165786</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1545897165786</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -450,7 +451,8 @@
     <MESSAGE value="removing class DirMaker and fix errors" />
     <MESSAGE value="creating requirements.txt, adding very simple log" />
     <MESSAGE value="fixing loging." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing loging." />
+    <MESSAGE value="cosmetic changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="cosmetic changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -558,6 +560,16 @@
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="315">
+            <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

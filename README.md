@@ -8,4 +8,9 @@ Example of command line call:
 python -m src.main.python.main.py <dir in whom dir will be created>
 ```
 
-If in directory given as parameter there is `directories.txt` file with list of values for 035 field from MARC format, program will create directories for all of them. Otherwise user will be asked for system number.
+If in directory given as parameter there is `directories.txt` file with list of values for 035 field from MARC format, program will create directories for all of them. Otherwise user will be asked for the system number.
+
+##Total Commander Button
+Command: `python -m src.main.python.main.py`
+Parameters: `"%P\"`
+Path: patch to dir_from_chamo directory.
