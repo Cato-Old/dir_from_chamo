@@ -92,4 +92,4 @@ class MARCFormatter:
     def data_format(self):
         return ' '.join((self.author_format() + ' -' if not self.author_format() == "" else self.author_format(),
                          self.title_format(),
-                         '(' + self.call_nrs_format() + ')')).lstrip()
+                         ', (' + self.call_nrs_format() + ')')).lstrip()
